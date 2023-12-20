@@ -1,7 +1,7 @@
 import React from "react";
-import {Route, Redirect} from 'react-router-dom'
+import { Redirect, Route } from 'react-router-dom';
 
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function PrivateRoute ({element, ...rest}){
     const user = localStorage.getItem('codeburger:userData')
