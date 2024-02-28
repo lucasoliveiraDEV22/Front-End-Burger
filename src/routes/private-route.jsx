@@ -1,21 +1,20 @@
-import React from "react";
-import { Redirect, Route } from 'react-router-dom';
+import React from 'react'
+import { Redirect, Route } from 'react-router-dom'
 
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-function PrivateRoute ({element, ...rest}){
-    const user = localStorage.getItem('codeburger:userData')
+function PrivateRoute ({ element, ...rest }) {
+  const user = localStorage.getItem('codeburger:userData')
 
-    if(!user){
-        return <Redirect to="/login" />
-    }
+  if (!user) {
+    return <Redirect to="/login" />
+  }
 
-        return <Route {...rest} element = {element} />
-
+  return <Route {...rest} element = {element} />
 }
 
 export default PrivateRoute
 
 PrivateRoute.propTypes = {
-    component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
 }

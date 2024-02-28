@@ -14,39 +14,37 @@ export const UserProvider = ({ children }) => {
   }
 
   const logout = async () => {
-      await localStorage.removeItem('burger:userInfo')
+    await localStorage.removeItem('burger:userInfo')
   }
-
 
   useEffect(() => {
     const loadUserData = async () => {
       const clientInfo = await localStorage.getItem('burger:userInfo')
-    }
 
-      if(clientInfo){
+      if (clientInfo) {
         setUserData(JSON.parse(clientInfo))
       }
-      loadUserData()
+    }
+    loadUserData()
   }, [])
 
-  return(
-    <UserContext.Provider value = {{putUserData, userData, logout}}>
+  return (
+    <UserContext.Provider value = {{ putUserData, userData, logout }}>
         {children}
     </UserContext.Provider>
-      )
-    }
+  )
+}
 
-    export const useUser = () => {
-        const context = useContext(UserContext)
-      
-        if (!context) {
-          throw new Error('useUser must be used with UserContext')
-        }
-      
-        return context
-      }
-      
-      UserProvider.propTypes = {
-        children: PropTypes.node,
-      }
-    
+export const useUser = () => {
+  const context = useContext(UserContext)
+
+  if (!context) {
+    throw new Error('useUser must be used with UserContext')
+  }
+
+  return context
+}
+
+UserProvider.propTypes = {
+  children: PropTypes.node
+}
