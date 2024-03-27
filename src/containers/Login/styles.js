@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import Background from '../../assets/background.svg';
+import Background from '../../assets/background.svg'
 
 export const Container = styled.div`
   height: 100vh;
@@ -9,11 +9,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const LoginImage = styled.img`
   height: 80%;
-`;
+`
 
 export const ContainerItems = styled.div`
   border-radius: 0 10px 10px 0;
@@ -44,7 +44,7 @@ export const ContainerItems = styled.div`
     display: flex;
     flex-direction: column;
   }
-`;
+`
 
 export const Label = styled.p`
   color: #fff;
@@ -54,19 +54,17 @@ export const Label = styled.p`
   line-height: normal;
   margin-top: 16px;
   margin-bottom: 5px;
-`;
+`
 
 export const Input = styled.input`
   width: 391.416px;
   height: 38.319px;
   border-radius: 5px;
-  border : ${props => (props.error ? '2px solid #CC1717' : 'none')};
+  border: ${props => (props.error ? '2px solid #CC1717' : 'none')};
   background: #fff;
   box-shadow: 3px 3px 10px 0px rgba(74, 144, 226, 0.19);
   padding-left: 10px;
-`;
-
-
+`
 
 export const SignInLink = styled.p`
   font-size: 14px;
@@ -78,7 +76,7 @@ export const SignInLink = styled.p`
     text-decoration-line: underline;
     cursor: pointer;
   }
-`;
+`
 
 export const ErrorMessage = styled.p`
   color: #cc1717;
@@ -87,4 +85,4 @@ export const ErrorMessage = styled.p`
   font-weight: 400;
   line-height: normal;
   margin-top: 2px;
-`;
+`

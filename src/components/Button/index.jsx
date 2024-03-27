@@ -9,7 +9,7 @@ function Button ({ children, ...rest }) {
 }
 
 Button.propTypes = {
-  children: PropTypes.string
+    children: PropTypes.string
 }
 
 export default Button

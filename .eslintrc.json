@@ -16,6 +16,7 @@
     "plugins": [
         "react",
         "eslint-plugin-import-helpers",
+        "eslint-plugin-prettier",
         "react-hooks",
         "prettier"
     ],
@@ -26,10 +27,9 @@
         "import-helpers/order-imports": [
             "warn",
             {
-                " newlinesBetween": "always",
-                "groups": [
+                "newlinesBetween": "always",
+                "''": [
                     "module",
-                    "/^@shared/",
                     [
                         "parent",
                         "sibling",
