@@ -18,9 +18,9 @@ import {
   LoginImage,
   SignInLink
 } from './styles'
+
 function Login() {
   const navigate = useNavigate()
-
   const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
@@ -39,26 +39,24 @@ function Login() {
   } = useForm({
     resolver: yupResolver(schema)
   })
-  // console.log(errors)
+
   const onSubmit = async clientData => {
-    const { data } = await toast.promise(
-      api.post('sessions', {
+    try {
+      const { data } = await api.post('sessions', {
         email: clientData.email,
         password: clientData.password
-      }),
-      {
-        pending: 'Verificando seus dados',
-        success: 'Seja bem-vindo(a)',
-        error: 'Verifique seu e-mail e/ou sua senha'
-      }
-    )
-    putUserData(data)
+      })
 
-    navigate.push('/')
+      // Armazena o token no localStorage
+      localStorage.setItem('codeburger:userData', JSON.stringify(data))
 
-    setTimeout(() => {
-      navigate.push('/')
-    }, 1000)
+      await toast.success('Seja bem-vindo(a)')
+
+      putUserData(data)
+      navigate('/')
+    } catch (error) {
+      toast.error('Verifique seu e-mail e/ou sua senha')
+    }
   }
 
   return (
