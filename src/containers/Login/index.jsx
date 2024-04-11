@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 import LoginImg from '../../assets/burger.svg'
@@ -20,7 +20,7 @@ import {
 } from './styles'
 
 function Login() {
-  const navigate = useNavigate()
+  const history = useHistory()
   const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
@@ -53,7 +53,7 @@ function Login() {
       await toast.success('Seja bem-vindo(a)')
 
       putUserData(data)
-      navigate('/')
+      history('/')
     } catch (error) {
       toast.error('Verifique seu e-mail e/ou sua senha')
     }
