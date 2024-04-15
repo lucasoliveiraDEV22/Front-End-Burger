@@ -57,7 +57,6 @@ function Login() {
       setTimeout(() => {
         history.push('/')
       }, 1000)
-      history.push('/')
     } catch (error) {
       toast.error('Verifique seu e-mail e/ou sua senha')
     }
