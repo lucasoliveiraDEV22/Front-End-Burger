@@ -53,7 +53,11 @@ function Login() {
       await toast.success('Seja bem-vindo(a)')
 
       putUserData(data)
-      history('/')
+
+      setTimeout(() => {
+        history.push('/')
+      }, 1000)
+      history.push('/')
     } catch (error) {
       toast.error('Verifique seu e-mail e/ou sua senha')
     }

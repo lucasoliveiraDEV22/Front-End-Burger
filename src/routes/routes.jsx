@@ -5,15 +5,16 @@ import Login from '../containers/Login'
 import Product from '../containers/Products'
 import Register from '../containers/Register'
 import PrivateRoute from './private-route'
+// import paths from '../constants/paths'
 
 function AllRoutes() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute exact path="/" component={<Home />} />
-        <PrivateRoute path="/produtos" component={<Product />} />
-        <Route path="/login" component={<Login />} />
-        <Route path="/cadastro" component={<Register />} />
+        <PrivateRoute exact path="/" component={Home} />
+        <PrivateRoute path="/produtos" component={Product} />
+        <Route path="/login" component={Login} />
+        <Route path="/cadastro" component={Register} />
       </Switch>
     </Router>
   )
