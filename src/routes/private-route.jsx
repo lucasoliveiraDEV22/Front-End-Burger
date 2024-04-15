@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
+import {Route, Navigate } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -7,10 +7,10 @@ function PrivateRoute({ component, ...rest }) {
   const user = localStorage.getItem('codeburger:userData')
 
   if (!user) {
-    return <Redirect to="/login" />
+    return <Navigate to="/login" replace={true} />
   }
 
-  return <Route {...rest} component={component} />
+  return <Route {...rest} element={element} />
 }
 
 export default PrivateRoute

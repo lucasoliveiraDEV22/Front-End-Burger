@@ -1,23 +1,35 @@
 import React from 'react'
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import Home from '../containers/Home'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Login from '../containers/Login'
-import Product from '../containers/Products'
 import Register from '../containers/Register'
 import PrivateRoute from './private-route'
 // import paths from '../constants/paths'
 
-function AllRoutes() {
+function MyRoutes() {
   return (
     <Router>
-      <Switch>
-        <PrivateRoute exact path="/" component={Home} />
-        <PrivateRoute path="/produtos" component={Product} />
-        <Route path="/login" component={Login} />
-        <Route path="/cadastro" component={Register} />
-      </Switch>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Register />} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/produtos"
+          element={
+            <PrivateRoute>
+              <Product />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </Router>
   )
 }
 
-export default AllRoutes
+export default MyRoutes
