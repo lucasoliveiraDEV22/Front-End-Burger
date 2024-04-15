@@ -20,7 +20,7 @@ import {
 } from './styles'
 
 function Login() {
-  
+  const navigate = useNavigate()
   const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
@@ -57,7 +57,7 @@ function Login() {
       setTimeout(() => {
         navigate('/')
       }, 1000)
-      const navigate = useNavigate()
+     
     } catch (error) {
       toast.error('Verifique seu e-mail e/ou sua senha')
     }
