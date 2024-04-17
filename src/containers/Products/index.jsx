@@ -25,6 +25,11 @@ export function Product() {
   return (
     <Container>
       <ProductImg src={ProductsLogo} alt="logo de produtos" />
+      {
+        categories && categories.map(category => (
+          <button key = {category.id}>{category.name}</button>
+        ))
+      }
     </Container>
   )
 }
