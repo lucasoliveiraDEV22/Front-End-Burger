@@ -52,4 +52,4 @@ export function CategoryCarousel() {
     </Container>
   )
 }
-export default CategoryCarousel
+

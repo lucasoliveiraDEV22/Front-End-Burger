@@ -2,11 +2,10 @@ import React from 'react'
 
 import HomeLogo from '../../assets/home-logo.svg'
 
-import CategoryCarousel from '../../components/CategoryCarousel'
+import { CategoryCarousel, OffersCarousel } from '../../components'
 import { Container, HomeImg } from './styles'
-import OffersCarousel from '../../components/OffersCarousel'
 
-function Home() {
+export function Home() {
   return (
     <Container>
       <HomeImg src={HomeLogo} alt="logo da home" />
@@ -16,5 +15,3 @@ function Home() {
     </Container>
   )
 }
-
-export default Home

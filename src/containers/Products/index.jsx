@@ -5,7 +5,7 @@ import ProductsLogo from '../../assets/product-logo.svg'
 
 import { Container, ProductImg } from './styles'
 
-function Product() {
+export function Product() {
   return (
     <Container>
       <ProductImg src={ProductsLogo} alt="logo de produtos" />
@@ -13,4 +13,4 @@ function Product() {
   )
 }
 
-export default Product
+

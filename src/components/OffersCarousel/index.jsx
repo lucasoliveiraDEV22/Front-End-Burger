@@ -61,4 +61,4 @@ export function OffersCarousel() {
     </Container>
   )
 }
-export default OffersCarousel
+

@@ -1,12 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 import LoginImg from '../../assets/burger.svg'
 import Logo from '../../assets/login.svg'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import { useUser } from '../../hooks/UserContext'
 import apiBurger from '../../services/api'
 import {
@@ -19,7 +19,7 @@ import {
   SignInLink
 } from './styles'
 
-function Login() {
+export function Login() {
   const navigate = useNavigate()
   const { putUserData } = useUser()
 
@@ -57,7 +57,6 @@ function Login() {
       setTimeout(() => {
         navigate('/')
       }, 1000)
-     
     } catch (error) {
       toast.error('Verifique seu e-mail e/ou sua senha')
     }
@@ -101,5 +100,3 @@ function Login() {
     </Container>
   )
 }
-
-export default Login
