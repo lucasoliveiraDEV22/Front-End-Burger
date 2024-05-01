@@ -4,6 +4,8 @@ import ProductsLogo from '../../assets/product-logo.svg'
 
 import api from '../../services/api'
 
+import { useLocation } from 'react-router-dom'
+
 import { CardProduct } from '../../components/CardProduct'
 import formatCurrency from '../../utils/formatCurrency'
 import {
@@ -15,9 +17,19 @@ import {
 } from './styles'
 
 export function Product() {
+
+  const {state} = useLocation()
+
+  let idCategory=0
+  if(state?.categoryId){
+    idCategory=state.categoryId
+  }
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
-  const [activeCategory, setActiveCategory] = useState(0)
+  const [activeCategory, setActiveCategory] = useState(idCategory)
+  const [filterProduct, setFilterProduct] = useState([])
+ 
+
 
   useEffect(() => {
     async function loadCategories() {
@@ -41,6 +53,17 @@ export function Product() {
     loadProducts()
     loadCategories()
   }, [])
+
+  useEffect(() =>{
+    if(activeCategory === 0){
+      setFilterProduct(products)
+    } else {
+      const newProduct = products.filter(
+        products => products.category_id === activeCategory
+      )
+      setFilterProduct(newProduct)
+    }
+  }, [activeCategory, products])
   return (
     <Container>
       <ProductImg src={ProductsLogo} alt="logo de produtos" />
@@ -57,8 +80,8 @@ export function Product() {
           ))}
       </CategoryMenu>
       <ProductsContainer>
-        {products &&
-          products.map(product => (
+        {filterProduct &&
+          filterProduct.map(product => (
             <CardProduct key={product.id} product={product} />
           ))}
       </ProductsContainer>
