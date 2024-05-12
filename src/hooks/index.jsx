@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 
 import { UserProvider } from './UserContext'
 
-const AppProvider = ({ children }) => <UserProvider>{children}</UserProvider>
+import { CartProvider } from './CartContext'
+
+const AppProvider = ({ children }) => (
+  <CartProvider>
+    <UserProvider>{children}</UserProvider>
+  </CartProvider>
+)
 
 AppProvider.propTypes = {
   children: PropTypes.node

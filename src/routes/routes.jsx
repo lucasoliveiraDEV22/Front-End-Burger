@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-import { Home, Login, Product, Register } from '../containers'
+import { Cart, Home, Login, Product, Register } from '../containers'
 import PrivateRoute from './private-route'
 // import paths from '../constants/paths'
 
@@ -26,11 +26,17 @@ function MyRoutes() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/carrinho"
+          element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </Router>
   )
 }
 
 export default MyRoutes
-
-

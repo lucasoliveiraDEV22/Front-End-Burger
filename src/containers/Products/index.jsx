@@ -17,19 +17,16 @@ import {
 } from './styles'
 
 export function Product() {
+  const { state } = useLocation()
 
-  const {state} = useLocation()
-
-  let idCategory=0
-  if(state?.categoryId){
-    idCategory=state.categoryId
+  let idCategory = 0
+  if (state?.categoryId) {
+    idCategory = state.categoryId
   }
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
   const [activeCategory, setActiveCategory] = useState(idCategory)
   const [filterProduct, setFilterProduct] = useState([])
- 
-
 
   useEffect(() => {
     async function loadCategories() {
@@ -54,8 +51,8 @@ export function Product() {
     loadCategories()
   }, [])
 
-  useEffect(() =>{
-    if(activeCategory === 0){
+  useEffect(() => {
+    if (activeCategory === 0) {
       setFilterProduct(products)
     } else {
       const newProduct = products.filter(
@@ -72,7 +69,7 @@ export function Product() {
           categories.map(category => (
             <CategoryButton
               key={category.id}
-              activeClick={activeCategory === category.id}
+              isActiveCategory={activeCategory === category.id}
               onClick={() => setActiveCategory(category.id)}
             >
               {category.name}
