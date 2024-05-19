@@ -7,8 +7,8 @@ const CartContext = createContext({})
 export const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([])
 
-  const updateLocalStorage = product => {
-    localStorage.setItem('codeburger:cartInfo', JSON.stringify(product))
+  const updateLocalStorage = async products => {
+    await localStorage.setItem('codeburger:cartInfo', JSON.stringify(products))
   }
 
   const putProductInCart = async product => {
@@ -16,7 +16,7 @@ export const CartProvider = ({ children }) => {
 
     let newCartProducts = []
     if (cartIndex >= 0) {
-      const newCartProducts = cartProducts
+      newCartProducts = cartProducts
 
       newCartProducts[cartIndex].quantity =
         newCartProducts[cartIndex].quantity + 1
@@ -31,7 +31,7 @@ export const CartProvider = ({ children }) => {
     await updateLocalStorage(cartProducts)
   }
 
-  const newQuantity = (productId, signal) => {
+  /*const newQuantity = (productId, signal) => {
     const updateQuantity = cartProducts.map(product => {
       if (product.id === productId) {
         if (signal === 'plus') {
@@ -61,6 +61,52 @@ export const CartProvider = ({ children }) => {
       setCartProducts([...cartProducts])
       updateLocalStorage(cartProducts)
     }
+  }*/
+  //   const deleteProducts = async productId => {
+  //     const newCart = cartProducts.filter(product => product.id !== productId)
+
+  //     setCartProducts(newCart)
+
+  //     await updateLocalStorage(newCart)
+  // }
+
+  const increaseProducts = async productId => {
+    const newCart = cartProducts.map(product => {
+      return product.id === productId
+        ? { ...product, quantity: product.quantity + 1 }
+        : product
+    })
+
+    setCartProducts(newCart)
+
+    await updateLocalStorage(newCart)
+  }
+
+  const decreaseProducts = async productId => {
+    const cartIndex = cartProducts.findIndex(pd => pd.id === productId)
+
+    if (cartProducts[cartIndex].quantity > 1) {
+      const newCart = cartProducts.map(product => {
+        return product.id === productId
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      })
+      setCartProducts(newCart)
+
+      await updateLocalStorage(newCart)
+    }
+  }
+  const deleteItem = async productId => {
+    const filterItem = cartProducts.findIndex(
+      product => product.id === productId
+    )
+
+    if (filterItem !== -1) {
+      cartProducts.splice(filterItem, 1)
+
+      setCartProducts([...cartProducts])
+      await updateLocalStorage(cartProducts)
+    }
   }
 
   useEffect(() => {
@@ -72,21 +118,22 @@ export const CartProvider = ({ children }) => {
       }
     }
     loadUserData()
-    // const product = localStorage.getItem('codeburger:cartInfo')
-
-    // if(product){
-    //   setCartProducts(JSON.parse(clientCartData))
-    // }
   }, [])
 
   return (
     <CartContext.Provider
-      value={{ putProductInCart, cartProducts, newQuantity, deleteItem }}
+      value={{
+        putProductInCart,
+        cartProducts,
+        increaseProducts,
+        decreaseProducts,
+        deleteItem
+      }}
     >
       {children}
     </CartContext.Provider>
   )
-}
+} //ERA ESSA CHAVE QUE ESTAVA ERRADA
 
 export const useCart = () => {
   const context = useContext(CartContext)

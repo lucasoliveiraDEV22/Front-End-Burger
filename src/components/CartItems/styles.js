@@ -71,3 +71,5 @@ export const Bin = styled.button`
     height: 50px;
   }
 `
+
+

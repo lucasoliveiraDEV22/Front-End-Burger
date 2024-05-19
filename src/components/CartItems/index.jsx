@@ -8,8 +8,9 @@ import BinCart from '../../assets/bin.png'
 import formatCurrency from '../../utils/formatCurrency'
 
 export function CartItems() {
-  const { cartProducts, newQuantity, deleteItem } = useCart()
-  console.log(cartProducts)
+  const { cartProducts, decreaseProducts, increaseProducts, deleteItem } =
+    useCart()
+
   return (
     <Container>
       <Header>
@@ -27,11 +28,9 @@ export function CartItems() {
             <p>{product.name}</p>
             <p>{formatCurrency(product.price)}</p>
             <div className="quantity-container">
-              <button onClick={() => newQuantity(product.id, 'minus')}>
-                -
-              </button>
+              <button onClick={() => decreaseProducts(product.id)}>-</button>
               <p>{product.quantity}</p>
-              <button onClick={() => newQuantity(product.id, 'plus')}>+</button>
+              <button onClick={() => increaseProducts(product.id)}>+</button>
             </div>
             <p>{formatCurrency(product.quantity * product.price)}</p>
             <Bin onClick={() => deleteItem(product.id)}>
