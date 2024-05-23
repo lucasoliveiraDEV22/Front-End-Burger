@@ -18,7 +18,7 @@ export function CartResume() {
     const sumAllItems = cartProducts.reduce((acc, current) => {
       return current.price * current.quantity + acc
     }, 0)
-    setFinalPrice(formatCurrency(sumAllItems))
+    setFinalPrice(sumAllItems)
     // console.log(sumAllItems)
   }, [cartProducts, deliveryTax])
   const submitOrder = async () => {
