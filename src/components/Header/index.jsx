@@ -15,18 +15,18 @@ import {
 
 export function Header() {
   const navigate = useNavigate()
-  const location = useLocation()
+  const { pathname } = useLocation()
   console.log(pathname)
   return (
     <Container>
       <ContainerLeft>
         <PageLink
           onClick={() => navigate('/')}
-          isActive={location.pathname === '/'}
+          isActive={pathname === '/'}
         >
           Home
         </PageLink>
-        <PageLink onClick={() => navigate('/produtos')}>Ver produtos</PageLink>
+        <PageLink onClick={() => navigate('/produtos')} isActive = {pathname.includes('produtos')}>Ver produtos</PageLink>
       </ContainerLeft>
       <ContainerRight>
         <PageLink>
