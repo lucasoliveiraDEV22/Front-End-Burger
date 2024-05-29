@@ -16,16 +16,16 @@ import {
   ProductsContainer
 } from './styles'
 
-export function Product() {
+export function Products() {
   const { state } = useLocation()
 
-  let idCategory = 0
+  let categoryId = 0
   if (state?.categoryId) {
-    idCategory = state.categoryId
+    categoryId = state.categoryId
   }
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
-  const [activeCategory, setActiveCategory] = useState(idCategory)
+  const [activeCategory, setActiveCategory] = useState(categoryId)
   const [filterProduct, setFilterProduct] = useState([])
 
   useEffect(() => {

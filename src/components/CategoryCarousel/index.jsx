@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Carousel from 'react-elastic-carousel'
 
+import { useNavigate } from 'react-router-dom'
 import Category from '../../assets/category.png'
 import api from '../../services/api'
 import { Button, CategoryImg, Container, ContainerItems, Image } from './styles'
 
 export function CategoryCarousel() {
   const [categories, setCategories] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function loadCategories() {
@@ -39,10 +41,10 @@ export function CategoryCarousel() {
             <ContainerItems key={category.id}>
               <Image src={category.url} alt="Image category" />
               <Button
-                to={{
-                  pathname: '/produtos',
-                  state: { categoryId: category.id }
-                }}
+              to={{
+                pathname: '/produtos',
+                state: { categoryId: category.id }
+              }}
               >
                 {category.name}
               </Button>
@@ -52,4 +54,3 @@ export function CategoryCarousel() {
     </Container>
   )
 }
-

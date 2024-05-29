@@ -24,6 +24,12 @@ export const ContainerRight = styled.div`
 
 export const ContainerText = styled.div`
   color: #555555;
+  p{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+}
 `
 
 export const Line = styled.div`
@@ -37,25 +43,16 @@ export const PageLink = styled.a`
   font-size: 18px;
   text-decoration: none;
   line-height: normal;
-  color: #${props => (props.isActive ? '#9758A6' : '#555555')};
+  color: ${props => (props.isActive ? '#9758A6' : '#555555')};
 `
 
 export const PageLinkExit = styled.a`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  text-decoration: none;
-  line-height: normal;
-  color: ${props => (props.isActive ? '#9758A6' : '#555555')};
-  font-weight: ${props => (props.isActive ? 700 : 400)};
-  font-size: 16px;
-
-  &:hover {
-    opacity: 0.7;
-    transition: transform 0.5s ease 0s;
-  }
-
-  &:active {
-    opacity: 0.8;
-    color: #45458b;
-    transform: scale(1.15);
-  }
+  color: #9758a6;
 `
