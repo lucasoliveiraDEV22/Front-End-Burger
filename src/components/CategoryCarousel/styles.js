@@ -1,48 +1,47 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  padding: 50px 0;
+
+  .rec.rec-arrow {
+    background-color: #9758a6;
+    color: #efefef;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .rec.rec-arrow:hover {
+    border: 2px solid #9758a6;
     background-color: #efefef;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-    padding: 50px 0;
+    color: #9758a6;
+  }
 
-    .rec.rec-arrow {
-        background-color: #9758a6;
-        color: #efefef;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    }
-
-    .rec.rec-arrow:hover {
-        border: 2px solid #9758a6;
-        background-color: #efefef;
-        color: #9758a6;
-    }
-
-    .rec.rec-arrow:disabled {
-        border: none;
-        background-color: #bebebf;
-        color: #efefef;
-    }
+  .rec.rec-arrow:disabled {
+    border: none;
+    background-color: #bebebf;
+    color: #efefef;
+  }
 `
 
 export const CategoryImg = styled.img``
 
 export const ContainerItems = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `
 
 export const Image = styled.img`
-    width: 250px;
-    border-radius: 15px;
-    
+  width: 250px;
+  border-radius: 15px;
 `
 
-export const Button = styled(Link)`
+export const Button = styled.button`
     margin-top: 16px;
     width: 250px;
     height: 66px;

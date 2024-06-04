@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -52,7 +50,7 @@ export const Image = styled.img`
   margin-bottom: 16px;
 `
 
-export const Button = styled(Link)`
+export const Button = styled.button`
   margin-top: 16px;
   width: 250px;
   height: 66px;

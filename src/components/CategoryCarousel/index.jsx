@@ -41,10 +41,11 @@ export function CategoryCarousel() {
             <ContainerItems key={category.id}>
               <Image src={category.url} alt="Image category" />
               <Button
-              to={{
-                pathname: '/produtos',
-                state: { categoryId: category.id }
-              }}
+                onClick={() =>
+                  navigate('/produtos', {
+                    state: { categoryId: category.id }
+                  })
+                }
               >
                 {category.name}
               </Button>
