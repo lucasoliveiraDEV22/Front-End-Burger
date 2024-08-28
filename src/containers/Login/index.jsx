@@ -8,7 +8,7 @@ import LoginImg from '../../assets/burger.svg'
 import Logo from '../../assets/login.svg'
 import { Button } from '../../components'
 import { useUser } from '../../hooks/UserContext'
-import apiBurger from '../../services/api'
+import { apiCodeBurger } from '../../services/api'
 import {
   Container,
   ContainerItems,
@@ -42,7 +42,7 @@ export function Login() {
 
   const onSubmit = async clientData => {
     try {
-      const { data } = await apiBurger.post('sessions', {
+      const { data } = await apiCodeBurger.post('sessions', {
         email: clientData.email,
         password: clientData.password
       })

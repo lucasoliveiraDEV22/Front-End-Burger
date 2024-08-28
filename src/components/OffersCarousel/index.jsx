@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel'
 import { useNavigate } from 'react-router-dom'
 import Offers from '../../assets/offers.png'
 import { useCart } from '../../hooks/CartContext'
-import api from '../../services/api'
+import { apiCodeBurger } from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Button, CategoryImg, Container, ContainerItems, Image } from './styles'
 
@@ -14,7 +14,7 @@ export function OffersCarousel() {
 
   useEffect(() => {
     async function loadOffers() {
-      const { data } = await api.get('products')
+      const { data } = await apiCodeBurger.get('products')
 
       const onlyOffers = data
         .filter(product => product.offer)

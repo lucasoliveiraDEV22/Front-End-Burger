@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 
 import { useCart } from '../../hooks/CartContext'
 
-import apiCodeBurger from '../../services/api'
+import { toast } from 'react-toastify'
+import { apiCodeBurger } from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Button } from '../Button'
 import { Container } from './styles'
-import { toast } from 'react-toastify'
 
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)

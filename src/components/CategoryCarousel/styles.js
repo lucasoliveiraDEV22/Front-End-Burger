@@ -1,6 +1,7 @@
 // import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
+import breakpoints from '../../styles/breakpoints'
 
 export const Container = styled.div`
   background-color: #efefef;
@@ -39,6 +40,9 @@ export const ContainerItems = styled.div`
 export const Image = styled.img`
   width: 250px;
   border-radius: 15px;
+  @media screen and (${breakpoints.sm}) {
+    width: 340px;
+  }
 `
 
 export const Button = styled.button`

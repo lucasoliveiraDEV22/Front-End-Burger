@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from '../../styles/breakpoints'
 
 export const ContainerButton = styled.button`
   width: 182.81px;
@@ -14,6 +15,15 @@ export const ContainerButton = styled.button`
 
   &:active {
     opacity: 0.6;
+  }
+
+  @media ${breakpoints.bg}{
+    margin-top: -1px;
+    margin-bottom: 8px;
+  }
+
+  @media ${breakpoints.md}{
+    width: 165.81px;
   }
 `;
 

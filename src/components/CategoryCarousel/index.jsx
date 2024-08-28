@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel'
 
 import { useNavigate } from 'react-router-dom'
 import Category from '../../assets/category.png'
-import api from '../../services/api'
+import { apiCodeBurger } from '../../services/api'
 import { Button, CategoryImg, Container, ContainerItems, Image } from './styles'
 
 export function CategoryCarousel() {
@@ -12,7 +12,7 @@ export function CategoryCarousel() {
 
   useEffect(() => {
     async function loadCategories() {
-      const { data } = await api.get('categories')
+      const { data } = await apiCodeBurger.get('categories')
 
       setCategories(data)
     }

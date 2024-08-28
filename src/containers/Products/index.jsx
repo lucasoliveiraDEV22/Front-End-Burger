@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import ProductsLogo from '../../assets/product-logo.svg'
 
-import api from '../../services/api'
+import { apiCodeBurger } from '../../services/api'
 
 import { useLocation } from 'react-router-dom'
 
@@ -30,7 +30,7 @@ export function Products() {
 
   useEffect(() => {
     async function loadCategories() {
-      const { data } = await api.get('categories')
+      const { data } = await apiCodeBurger.get('categories')
 
       const newCategories = [{ id: 0, name: 'Todas' }, ...data]
 

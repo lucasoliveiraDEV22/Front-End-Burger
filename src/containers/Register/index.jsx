@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 import Logo from '../../assets/login.svg'
 import RegisterImg from '../../assets/register-image.svg'
 import { Button } from '../../components'
-import api from '../../services/api'
+import { apiCodeBurger } from '../../services/api'
 import {
   Container,
   ContainerItems,
@@ -41,7 +41,7 @@ export function Register() {
   // console.log(errors)
   const onSubmit = async clientData => {
     try {
-      const { status } = await api.post(
+      const { status } = await apiCodeBurger.post(
         'users',
         {
           name: clientData.name,

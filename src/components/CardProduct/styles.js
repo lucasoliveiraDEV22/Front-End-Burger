@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import breakpoints from '../../styles/breakpoints'
 
 export const Container = styled.div`
   width: max-width;
@@ -20,6 +21,9 @@ export const Container = styled.div`
 export const Image = styled.img`
   width: 185px;
   border-radius: 10px;
+  @media screen and (${breakpoints.sm}) {
+    width: 113px;
+  }
 `
 
 export const ProductName = styled.p`

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const apiCodeBurger = axios.create({
+export const apiCodeBurger = axios.create({
   baseURL: 'http://localhost:3001'
 })
 
@@ -11,4 +11,4 @@ apiCodeBurger.interceptors.request.use(async config => {
   return config
 })
 
-export default apiCodeBurger
+
