@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel'
 
 import { useNavigate } from 'react-router-dom'
 import Category from '../../assets/category.png'
-import { apiCodeBurger } from '../../services/api'
+import apiCodeBurger from '../../services/api'
 import { Button, CategoryImg, Container, ContainerItems, Image } from './styles'
 
 export function CategoryCarousel() {

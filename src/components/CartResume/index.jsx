@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useCart } from '../../hooks/CartContext'
 
 import { toast } from 'react-toastify'
-import { apiCodeBurger } from '../../services/api'
+import apiCodeBurger from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Button } from '../Button'
 import { Container } from './styles'

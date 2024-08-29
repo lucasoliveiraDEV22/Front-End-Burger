@@ -8,7 +8,7 @@ import LoginImg from '../../assets/burger.svg'
 import Logo from '../../assets/login.svg'
 import { Button } from '../../components'
 import { useUser } from '../../hooks/UserContext'
-import { apiCodeBurger } from '../../services/api'
+import apiCodeBurger from '../../services/api'
 import {
   Container,
   ContainerItems,

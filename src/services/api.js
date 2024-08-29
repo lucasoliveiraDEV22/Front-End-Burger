@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const apiCodeBurger = axios.create({
+const apiCodeBurger = axios.create({
   baseURL: 'http://localhost:3001'
 })
 
@@ -10,5 +10,7 @@ apiCodeBurger.interceptors.request.use(async config => {
   config.headers.authorization = `Bearer ${token}`
   return config
 })
+
+export default apiCodeBurger
 
 

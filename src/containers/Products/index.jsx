@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import ProductsLogo from '../../assets/product-logo.svg'
 
-import { apiCodeBurger } from '../../services/api'
+import apiCodeBurger from '../../services/api'
 
 import { useLocation } from 'react-router-dom'
 

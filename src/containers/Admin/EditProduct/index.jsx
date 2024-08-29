@@ -1,22 +1,21 @@
-import { useForm, Controller } from 'react-hook-form'
-import CloudUploadIcon from '@mui/icons-material/CloudUpload'
-import ReactSelect from 'react-select'
 import { yupResolver } from '@hookform/resolvers/yup'
+import CloudUploadIcon from '@mui/icons-material/CloudUpload'
+import { useEffect, useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import { useLocation, useNavigate } from 'react-router-dom'
+import ReactSelect from 'react-select'
+import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { Errors } from '../../../components'
-import { useLocation } from 'react-router-dom'
+import apiCodeBurguer from '../../../services/api'
 import {
-  Container,
-  Label,
-  Input,
   ButtonStyle,
-  LabelUpload,
-  InputContainer
+  Container,
+  Input,
+  InputContainer,
+  Label,
+  LabelUpload
 } from './styles'
-import { useState, useEffect } from 'react'
-import { apiCodeBurguer } from '../../../services/api'
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
 
 function AddProduct() {
   const [fileProduct, setFileProduct] = useState(null)
@@ -48,8 +47,6 @@ function AddProduct() {
     category_id: yup.object(),
     offer: yup.bool()
   })
-  
-  
 
   const {
     register,
@@ -66,7 +63,7 @@ function AddProduct() {
     productFormData.append('name', data.name)
     productFormData.append('price', data.price)
     if (data.file && data.file.length > 0) {
-      productFormData.append('file', data.file[0]);
+      productFormData.append('file', data.file[0])
     }
     productFormData.append('category_id', data.category_id.id)
     productFormData.append('offer', data.offer)
@@ -170,7 +167,11 @@ function AddProduct() {
         </Errors>
 
         <InputContainer>
-          <input type="checkbox" {...register('offer')} defaultChecked={row.offer}/>
+          <input
+            type="checkbox"
+            {...register('offer')}
+            defaultChecked={row.offer}
+          />
           <Label style={{ top: 0 }}>Produto em Oferta?</Label>
         </InputContainer>
         <ButtonStyle type="submit">Editar Produto</ButtonStyle>

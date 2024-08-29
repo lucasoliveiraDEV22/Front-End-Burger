@@ -7,7 +7,7 @@ import { Errors } from '../../../components'
 
 import { Container, Label, Input, ButtonStyle, LabelUpload } from './styles'
 import { useState, useEffect } from 'react'
-import { apiCodeBurger } from '../../../services/api'
+import apiCodeBurger from '../../../services/api'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 

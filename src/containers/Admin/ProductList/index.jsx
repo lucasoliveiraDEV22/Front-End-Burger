@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import formatCurrency from '../../../utils/formatCurrency'
 import paths from './../../../constants/path'
-import { apiCodeBurguer } from './../../../services/api'
+import apiCodeBurguer from './../../../services/api'
 import { Edit, Imagem } from './styles'
 
 function ProductList() {

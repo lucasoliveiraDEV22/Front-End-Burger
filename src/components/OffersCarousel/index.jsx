@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel'
 import { useNavigate } from 'react-router-dom'
 import Offers from '../../assets/offers.png'
 import { useCart } from '../../hooks/CartContext'
-import { apiCodeBurger } from '../../services/api'
+import apiCodeBurger from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Button, CategoryImg, Container, ContainerItems, Image } from './styles'
 
