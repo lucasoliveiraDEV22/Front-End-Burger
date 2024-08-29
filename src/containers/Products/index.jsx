@@ -38,7 +38,7 @@ export function Products() {
     }
 
     async function loadProducts() {
-      const { data: allProducts } = await api.get('products')
+      const { data: allProducts } = await apiCodeBurger.get('products')
 
       const newProducts = allProducts.map(product => {
         return { ...product, formatedPrice: formatCurrency(product.price) }
