@@ -24,12 +24,12 @@ export const ContainerRight = styled.div`
 
 export const ContainerText = styled.div`
   color: #555555;
-  p{
+  p {
     font-style: normal;
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
-}
+  }
 `
 
 export const Line = styled.div`
