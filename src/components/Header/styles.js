@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import breakpoints from '../../styles/breakpoints'
 
 export const Container = styled.div`
   height: 72px;
@@ -12,6 +13,9 @@ export const Container = styled.div`
 export const ContainerLeft = styled.div`
   display: flex;
   gap: 30px;
+  @media screen and (${breakpoints.sm}){
+      margin-left:32px;
+    }
 `
 
 export const ContainerRight = styled.div`
@@ -20,6 +24,14 @@ export const ContainerRight = styled.div`
   img {
     margin-top: 5px;
   }
+  @media screen and (${breakpoints.sm}){
+      margin-left:36px;
+      gap:10px;
+
+      img{
+        width:1.690rem;
+      }
+    }
 `
 
 export const ContainerText = styled.div`

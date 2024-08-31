@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import breakpoints from '../../styles/breakpoints'
 
 export const Container = styled.div`
-  width: max-width;
+  width: max-content;
   height: 202px;
   border-radius: 30px;
   background: #fff;

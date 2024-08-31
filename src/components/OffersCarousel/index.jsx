@@ -5,7 +5,7 @@ import Offers from '../../assets/offers.png'
 import { useCart } from '../../hooks/CartContext'
 import apiCodeBurger from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
-import { Button, CategoryImg, Container, ContainerItems, Image } from './styles'
+import { Button, CategoryImg, Container, ContainerItems, Image, NameSnack, Price } from './styles'
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([])
@@ -48,8 +48,8 @@ export function OffersCarousel() {
           offers.map(product => (
             <ContainerItems key={product.id}>
               <Image src={product.url} alt="foto do produto" />
-              <p>{product.name}</p>
-              <p>{product.formatedPrice}</p>
+              <NameSnack>{product.name}</NameSnack>
+              <Price>{product.formatedPrice}</Price>
               <Button
                 onClick={() => {
                   putProductInCart(product)

@@ -32,16 +32,23 @@ export const CategoryImg = styled.img``
 export const ContainerItems = styled.div`
   display: flex;
   flex-direction: column;
-  p {
-    color: #424242;
+`
 
-    /* Headline 6 Bold */
-    font-family: 'Source Sans Pro';
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; /* 26.4px */
-  }
+export const NameSnack = styled.p`
+  /* Headline 6 Bold */
+  color: #424242;
+  font-family: 'Source Sans Pro';
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 26.4px */
+`
+
+export const Price = styled.p`
+color: #212121;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 26px;
 `
 
 export const Image = styled.img`

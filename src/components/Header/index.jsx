@@ -17,7 +17,7 @@ import {
 export function Header() {
   const { logout, userData } = useUser()
   const navigate = useNavigate()
-  const { pathname } = useLocation()
+  const location = useLocation()
 
   const logoutUser = () => {
     logout()
@@ -27,18 +27,21 @@ export function Header() {
   return (
     <Container>
       <ContainerLeft>
-        <PageLink onClick={() => navigate('/')} isActive={pathname === '/'}>
+        <PageLink
+          onClick={() => navigate('/')}
+          isActive={location.pathname === '/'}
+        >
           Home
         </PageLink>
         <PageLink
           onClick={() => navigate('/produtos')}
-          isActive={pathname.includes('produtos')}
+          isActive={location.pathname.includes('produtos')}
         >
           Ver produtos
         </PageLink>
       </ContainerLeft>
       <ContainerRight>
-        <PageLink>
+        <PageLink onClick={() => navigate('/carrinho')}>
           <img src={Cart} alt="carrinho" />
         </PageLink>
         <Line></Line>
