@@ -35,7 +35,7 @@ function MyRoutes() {
           }
         />
         <Route
-          path={paths.Order}
+          path={paths.Orders}
           element={
             <PrivateRoute isAdmin>
               <Admin />
